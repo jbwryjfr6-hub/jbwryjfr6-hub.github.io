@@ -1,91 +1,158 @@
-html {
-    background-image: url('img.jpg');
+/* إعدادات عامة */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(circle, #1a0000 0%, #000000 100%);
+    background-image: url('img.jpg'); /* تأكد أن الصورة موجودة في المجلد */
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #24272b;
     color: white;
     text-align: center;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-h1 {
-    text-shadow: 0.1em 0.1em 0.2em black;
-    font-size: 25px;
-    color: white;
+/* الهيدر (الجزء العلوي) */
+.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    gap: 20px;
 }
 
-a {
-    text-decoration: none;
+.main-logo {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
 }
 
-#progress {
-    display: block;
+.brand-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-#menu {
-    display: block;
+.arabic-text {
+    font-family: 'Cairo', sans-serif; /* إذا كنت تستخدم خط خارجي */
+    color: #fff;
 }
 
-#crypto {
-    display: none;
+.host-badge {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid #ff0000;
+    color: #ff4d4d;
+    display: inline-block;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }
 
-#tools {
-    display: none;
+.slash {
+    color: #ff0000;
+    font-weight: 900;
 }
 
-#lnx {
-    display: none;
+/* منطقة الرسائل */
+#msgs {
+    font-size: 18px;
+    height: 30px;
+    margin-bottom: 20px;
+    color: #ccc;
+    text-shadow: 0 0 5px #ff0000;
 }
 
-#mods {
-    display: none;
+/* القائمة والأزرار */
+.section-title {
+    font-size: 22px;
+    color: #ffcc00;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.button-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 100px;
 }
 
 .btn {
-    background-color: #003263;
+    background: linear-gradient(45deg, #4e0000, #b30000);
     color: white;
-    width: 227px;
-    height: 46px;
-    padding-bottom: 5px;
-    text-align: center;
-    font-size: 20px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 5px;
-    margin-right: 5px;
-    border-style: none;
-    transition-duration: 0.4s;
+    width: 280px;
+    height: 50px;
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .btn:hover {
-    background-color: #0069d9;
-}
-
-.btn-onln {
-    background-color: #076300;
-}
-
-.btn-onln:hover {
-    background-color: #18891b;
-}
-
-.btn-toolbox {
-    background-color: #ae2301;
-}
-
-.btn-toolbox:hover {
-    background-color: #d42a01;
+    background: linear-gradient(45deg, #ff0000, #800000);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
 .btn-multi {
-    background-color: #b8860b;
+    background: linear-gradient(45deg, #8b6508, #daa520);
+    border-color: #ffd700;
+    color: #000;
 }
 
 .btn-multi:hover {
-    background-color: #daa520;
+    background: linear-gradient(45deg, #daa520, #ffd700);
+    box-shadow: 0 0 20px rgba(218, 165, 32, 0.6);
+}
+
+.btn-restore {
+    background: linear-gradient(45deg, #333, #666);
+    border-color: #999;
+}
+
+/* الفوتر */
+.footer {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #888;
+}
+
+.footer a {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.thanks {
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* الشريط السفلي */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(90deg, #ff0000, #000000);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.8);
+    z-index: 100;
 }
