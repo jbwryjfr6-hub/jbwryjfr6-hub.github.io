@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- الهيدر العلوي حسب الصورة -->
     <header class="main-header">
         <div class="logo-container">
             <img src="logo.png" alt="GAMERYA LOGO" class="main-logo">
@@ -21,36 +20,45 @@
         </div>
     </header>
 
-    <!-- منطقة الرسائل التفاعلية -->
     <div id="msgs">مرحباً بك في هوست جيمريا</div>
 
-    <!-- القائمة الرئيسية -->
     <div id="menu">
-        <h2 class="section-title">Select Your Firmware</h2>
+        <h2 class="section-title">Main Menu</h2>
         
         <div class="button-grid">
-            <button class="btn btn-multi" onmouseover="updateMsg('PS4 GoldHEN Host for 5.05 and 7.00 to 14.02 FW')" onmouseout="resetMsg()" onclick="location.replace('g2all/index.html')"> GoldHEN Multi FW </button>
             
-            <button class="btn" onmouseover="updateMsg('PS4 5.05 FW Host v2.5')" onmouseout="resetMsg()" onclick="location.replace('505/index.html')"> 5.05 FW v2.5 </button>
-            
-            <button class="btn" onmouseover="updateMsg('PS4 6.72 FW GoldHEN Host')" onmouseout="resetMsg()" onclick="location.replace('672goldhen/index.html')"> 6.72 FW GoldHEN </button>
-            
-            <button class="btn" onmouseover="updateMsg('PS4 6.72 FW Host v3.0')" onmouseout="resetMsg()" onclick="location.replace('672/index.html')"> 6.72 FW v3.0 </button>
-            
-            <button class="btn" onmouseover="updateMsg('PS4 9.00 FW GoldHEN Host')" onmouseout="resetMsg()" onclick="location.replace('900goldhen/index.html')"> 9.00 FW GoldHEN </button>
-            
-            <button class="btn" onmouseover="updateMsg('PS4 9.00 FW Host v3.0')" onmouseout="resetMsg()" onclick="location.replace('900v3/index.html')"> 9.00 FW v3.0 </button>
-            
-            <button class="btn btn-restore" onmouseover="updateMsg('Restore a Host Guide')" onmouseout="resetMsg()" onclick="location.replace('restore/index.html')"> Restore Host </button>
+            <!-- قائمة الإصدارات المنسدلة -->
+            <div class="dropdown">
+                <button class="btn btn-multi dropdown-btn" onclick="toggleDropdown()">
+                    Select Firmware ▾
+                </button>
+                <div class="dropdown-content" id="fwDropdown">
+                    <a href="g2all/index.html" onmouseover="updateMsg('GoldHEN Multi FW')">GoldHEN Multi FW</a>
+                    <a href="505/index.html" onmouseover="updateMsg('5.05 FW v2.5')">5.05 FW v2.5</a>
+                    <a href="672goldhen/index.html" onmouseover="updateMsg('6.72 FW GoldHEN')">6.72 FW GoldHEN</a>
+                    <a href="672/index.html" onmouseover="updateMsg('6.72 FW v3.0')">6.72 FW v3.0</a>
+                    <a href="900goldhen/index.html" onmouseover="updateMsg('9.00 FW GoldHEN')">9.00 FW GoldHEN</a>
+                    <a href="900v3/index.html" onmouseover="updateMsg('9.00 FW v3.0')">9.00 FW v3.0</a>
+                </div>
+            </div>
+
+            <!-- زر الـ Payloads -->
+            <button class="btn btn-payload" onclick="location.replace('payloads.html')">
+                🚀 Payloads
+            </button>
+
+            <!-- زر الاستعادة -->
+            <button class="btn btn-restore" onclick="location.replace('restore/index.html')">
+                Restore Host
+            </button>
         </div>
 
         <footer class="footer">
-            Designed by <a href="https://twitter.com/GamerHack93" target="_blank">@GamerHack93</a> 
+            Designed by <span class="designer">gamewya & jafar</span> 
             <span class="thanks">Special thanks to all devs on the scene.</span>
         </footer>
     </div>
 
-    <!-- شريط سفلي كما في الصورة -->
     <div class="bottom-bar">
         <span>GAMERYA HOST</span>
     </div>
@@ -60,8 +68,22 @@
         function updateMsg(text) {
             msgElement.innerHTML = text;
         }
-        function resetMsg() {
-            msgElement.innerHTML = 'مرحباً بك في هوست جيمريا';
+
+        function toggleDropdown() {
+            document.getElementById("fwDropdown").classList.toggle("show");
+        }
+
+        // إغلاق القائمة عند الضغط خارجها
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
         }
     </script>
 </body>
